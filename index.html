@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nocta The Club | Baia Mare</title>
+  <meta name="description" content="Experience the ultimate nightlife at Nocta The Club. Premium atmosphere, international DJs, and exclusive VIP service in Baia Mare.">
+
+  <!-- Favicon (placeholder) -->
+  <link rel="icon" type="image/png" href="assets/signature-drink.png">
+
+  <!-- Preconnect to Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- GSAP Core & Plugins -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="loading">
+  <!-- 0. PRELOADER -->
+  <div class="loader" id="loader">
+    <div class="preloader-content">
+      <div class="loader-logo">NOCTA</div>
+      <div class="loader-bar">
+        <div class="loader-progress" id="progress"></div>
+      </div>
+      <p class="loader-status" data-i18n="loader.status">ENTERING THE VOID...</p>
+    </div>
+  </div>
+
+  <!-- 1. NAVIGATION -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-text">NOCTA</span>
+      </a>
+      
+      <div class="nav-right">
+        <!-- Desktop Links -->
+        <div class="nav-links">
+          <a href="#hero" class="nav-link active" data-i18n="nav.home">HOME</a>
+          <a href="#menu" class="nav-link" data-i18n="nav.menu">MENU</a>
+          <a href="#book" class="nav-link" data-i18n="nav.book">RESERVATIONS</a>
+          <a href="gallery.html" class="nav-link" data-i18n="nav.gallery">GALLERY</a>
+        </div>
+
+        <div class="nav-actions">
+          <!-- Language Switcher -->
+          <div class="lang-wrapper">
+            <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+              <span class="lang-current" id="lang-current">EN</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 5L6 8L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </button>
+            <div class="lang-dropdown" id="lang-dropdown">
+              <button class="lang-option active" data-lang="en">English</button>
+              <button class="lang-option" data-lang="ro">Română</button>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <a href="#book" class="nav-cta-btn" data-i18n="nav.cta">BOOK A TABLE</a>
+
+          <!-- Hamburger -->
+          <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 2. MAIN APP CONTAINER -->
+  <main class="app-container">
+    
+    <!-- CANVAS EFFECTS OVERLAY (Persistent) -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- PAGE: HOME -->
+    <section id="page-home" class="page active">
+      
+      <!-- HERO SECTION -->
+      <section class="hero" id="hero">
+        <div class="hero-bg-container">
+          <div class="hero-image-layer"></div>
+          <div class="hero-gradient-overlay"></div>
+          <div class="hero-lightning" id="hero-lightning"></div>
+        </div>
+        
+        <div class="hero-content">
+          <div class="hero-text-wrap">
+            <span class="hero-eyebrow reveal-up" data-i18n="hero.eyebrow">THE ARCHIVE OF NIGHT</span>
+            <h1 class="hero-title reveal-up" data-delay="100">
+              <span class="title-top">NOCTA</span>
+              <span class="title-bottom">THE CLUB</span>
+            </h1>
+            <p class="hero-subtitle reveal-up" data-delay="200" data-i18n="hero.subtitle">
+              Where quiet luxury meets the frequency of the future. Experience the standard of Baia Mare.
+            </p>
+            <div class="hero-btns reveal-up" data-delay="300">
+              <a href="#book" class="btn btn-primary" data-i18n="hero.cta.book">BOOK EXPERIENCE</a>
+              <a href="#menu" class="btn btn-outline" data-i18n="hero.cta.menu">VIEW MENU</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-footer reveal-in" data-delay="600">
+          <div class="hero-scroll-indicator">
+            <span data-i18n="hero.scroll">SCROLL TO DISCOVER</span>
+            <div class="scroll-line"></div>
+          </div>
+        </div>
+
+        <!-- Floating Orbs for atmospheric depth -->
+        <div class="hero-orbs">
+          <div class="orb orb-1"></div>
+          <div class="orb orb-2"></div>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION (The Essence) -->
+      <section class="section about-section" id="about">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-text">
+              <span class="eyebrow reveal-up" data-i18n="about.eyebrow">OUR PHILOSOPHY</span>
+              <h2 class="section-title reveal-up" data-delay="100" data-i18n="about.title">QUIET LUXURY,<br>LOUD ENERGY</h2>
+              <p class="section-desc reveal-up" data-delay="200" data-i18n="about.desc">
+                Nocta is more than a destination; it's a sensory sanctuary designed for those who seek exclusivity without pretension. From the custom-tuned acoustics to our curated beverage library, every detail is engineered for the perfect sequence.
+              </p>
+              <div class="about-stats reveal-up" data-delay="300">
+                <div class="stat-item">
+                  <span class="stat-num">20+</span>
+                  <span class="stat-label" data-i18n="about.stat.vip">VIP SUITES</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-num">500+</span>
+                  <span class="stat-label" data-i18n="about.stat.capacity">CAPACITY</span>
+                </div>
+              </div>
+            </div>
+            <div class="about-visual reveal-in" data-delay="100">
+              <div class="visual-card">
+                <img src="assets/club-interior.png" alt="Nocta Interior">
+                <div class="visual-overlay"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEQUENCES SECTION (Horizontal Scroll) -->
+      <section class="horizontal-scroll-container" id="sequences-scroll">
+        <div class="horizontal-inner">
+          
+          <!-- Slide 1: Teaser -->
+          <div class="scroll-slide slide-teaser">
+            <div class="teaser-content">
+              <span class="eyebrow" data-i18n="sequences.eyebrow">UPCOMING SEQUENCES</span>
+              <h2 class="display-title" data-i18n="sequences.title">BEYOND<br>THE LIMIT</h2>
+              <p data-i18n="sequences.subtitle">The archive expands this season with international sounds.</p>
+            </div>
+          </div>
+
+          <!-- Slide 2: Event 1 -->
+          <div class="scroll-slide slide-event">
+            <div class="event-card-horizontal">
+              <div class="event-info">
+                <span class="event-date">10.05.2026</span>
+                <h3 class="event-name">IULY NEAMTU LIVE</h3>
+                <p class="event-desc" data-i18n="sequences.event1.desc">A night of pure energy and traditional infusion with the master of flow.</p>
+                <a href="#book" class="event-link" data-i18n="sequences.cta">RESERVE SUITE</a>
+              </div>
+              <div class="event-image">
+                <img src="assets/iuly_neamtu.png" alt="Iuly Neamtu">
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Event 2 -->
+          <div class="scroll-slide slide-event">
+            <div class="event-card-horizontal">
+              <div class="event-info">
+                <span class="event-date">17.05.2026</span>
+                <h3 class="event-name">NEON MIDNIGHT</h3>
+                <p class="event-desc" data-i18n="sequences.event2.desc">High-contrast visuals paired with melodic house structures.</p>
+                <a href="#book" class="event-link" data-i18n="sequences.cta">RESERVE SUITE</a>
+              </div>
+              <div class="event-image">
+                <img src="assets/unknown-artist.png" alt="Neon Midnight">
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Event 3 -->
+          <div class="scroll-slide slide-event">
+            <div class="event-card-horizontal">
+              <div class="event-info">
+                <span class="event-date">24.05.2026</span>
+                <h3 class="event-name">PURPLE DISCO</h3>
+                <p class="event-desc" data-i18n="sequences.event3.desc">Classic grooves filtered through modern luxury.</p>
+                <a href="#book" class="event-link" data-i18n="sequences.cta">RESERVE SUITE</a>
+              </div>
+              <div class="event-image">
+                <img src="assets/signature-drink.png" alt="Purple Disco">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- MENU PREVIEW SECTION -->
+      <section class="section menu-section" id="menu">
+        <div class="container">
+          <div class="menu-header">
+            <span class="eyebrow reveal-up" data-i18n="menu.eyebrow">THE LIBRARY</span>
+            <h2 class="section-title reveal-up" data-delay="100" data-i18n="menu.title">CURATED TASTES</h2>
+          </div>
+
+          <div class="menu-tabs reveal-up" data-delay="200">
+            <button class="menu-tab-btn active" data-tab="glass" data-i18n="menu.tab.glass">BY THE GLASS</button>
+            <button class="menu-tab-btn" data-tab="bottles" data-i18n="menu.tab.bottles">PROMO BY BOTTLE</button>
+            <button class="menu-tab-btn" data-tab="signature" data-i18n="menu.tab.signature">SIGNATURE</button>
+          </div>
+
+          <div class="menu-grid" id="menu-grid">
+            <!-- Items injected via app.js -->
+          </div>
+
+          <div class="menu-footer reveal-up" data-delay="400">
+            <p data-i18n="menu.full.desc">View our complete spirits library and vintage selections.</p>
+            <a href="#" class="btn btn-outline" data-i18n="menu.cta.full">DOWNLOAD FULL MENU</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOKING SECTION -->
+      <section class="section booking-section" id="book">
+        <div class="container">
+          <div class="booking-card reveal-in">
+            <div class="booking-grid">
+              <div class="booking-info">
+                <h2 class="display-title" data-i18n="book.title">SECURE YOUR<br>SEQUENCE</h2>
+                <p data-i18n="book.desc">Experience Nocta from the comfort of our VIP suites. Prime tables are limited.</p>
+                
+                <div class="contact-details">
+                  <div class="contact-item">
+                    <span class="label">WHATSAPP / CALL</span>
+                    <a href="tel:+40748530467" class="value">+40 (748) 530 467</a>
+                  </div>
+                  <div class="contact-item">
+                    <span class="label">LOCATION</span>
+                    <span class="value">Bulevardul Decebal 2, Baia Mare</span>
+                  </div>
+                </div>
+
+                <div class="social-links">
+                  <a href="https://www.instagram.com/nocta.the.club/" target="_blank">INSTAGRAM</a>
+                  <a href="#">TIKTOK</a>
+                  <a href="#">FACEBOOK</a>
+                </div>
+              </div>
+              
+              <div class="booking-form-wrap">
+                <form class="booking-form" id="booking-form">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label data-i18n="form.name">NAME</label>
+                      <input type="text" placeholder="John Doe" required>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label data-i18n="form.phone">PHONE</label>
+                      <input type="tel" placeholder="+40 700 000 000" required>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label data-i18n="form.date">DATE</label>
+                      <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                      <label data-i18n="form.guests">GUESTS</label>
+                      <select>
+                        <option>2-4</option>
+                        <option>4-8</option>
+                        <option>8-12</option>
+                        <option>12+</option>
+                      </select>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary btn-block" data-i18n="form.submit">REQUEST RESERVATION</button>
+                  <p class="form-note" data-i18n="form.note">Your request will be confirmed via WhatsApp.</p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="logo-text">NOCTA</span>
+            <p data-i18n="footer.tagline">The standard of nightlife in Baia Mare.</p>
+          </div>
+          <div class="footer-nav">
+            <div class="footer-col">
+              <h4 data-i18n="footer.col1">NAVIGATION</h4>
+              <a href="#hero" data-i18n="nav.home">Home</a>
+              <a href="#menu" data-i18n="nav.menu">Menu</a>
+              <a href="#book" data-i18n="nav.book">Reservations</a>
+              <a href="gallery.html" data-i18n="nav.gallery">Gallery</a>
+            </div>
+            <div class="footer-col">
+              <h4 data-i18n="footer.col2">LEGAL</h4>
+              <a href="privacy-policy.html" data-i18n="footer.privacy">Privacy Policy</a>
+              <a href="terms-and-conditions.html" data-i18n="footer.terms">Terms & Conditions</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2026 NOCTA THE CLUB. ALL RIGHTS RESERVED.</p>
+          <div class="built-by">
+            DESIGN BY <span class="glow-text">OS DIGITAL</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- 3. CURSOR & ATMOSPHERE -->
+  <div id="cursor-glow"></div>
+
+  <!-- 4. MOBILE MENU OVERLAY -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-links">
+        <a href="#hero" class="mobile-nav-link" data-i18n="nav.home">HOME</a>
+        <a href="#menu" class="mobile-nav-link" data-i18n="nav.menu">MENU</a>
+        <a href="#book" class="mobile-nav-link" data-i18n="nav.book">RESERVATIONS</a>
+        <a href="gallery.html" class="mobile-nav-link" data-i18n="nav.gallery">GALLERY</a>
+      </div>
+      <div class="mobile-nav-footer">
+        <a href="#book" class="nav-cta-btn" data-i18n="nav.cta">BOOK A TABLE</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. SCRIPTS -->
+  <script src="effects.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
