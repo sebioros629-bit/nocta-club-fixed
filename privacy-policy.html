@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Nocta The Club</title>
+  <meta name="description" content="Privacy Policy for Nocta The Club. Learn how we handle your data.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background: #0a0a0a; /* Ensure dark background */
+      color: #ffffff;
+    }
+
+    .legal-content {
+      padding: 160px 0 100px;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .legal-header {
+      margin-bottom: 80px;
+      text-align: center;
+    }
+
+    .legal-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      color: var(--white);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .legal-date {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--purple-bright);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      opacity: 0.8;
+    }
+
+    .legal-body {
+      font-family: var(--font-body);
+      color: var(--gray-300);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .legal-body h2 {
+      font-family: var(--font-heading);
+      color: var(--white);
+      font-size: 1.5rem;
+      margin: 50px 0 24px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .legal-body h2::before {
+      content: '';
+      width: 30px;
+      height: 1px;
+      background: var(--purple-glow);
+    }
+
+    .legal-body p {
+      margin-bottom: 24px;
+    }
+
+    .legal-body ul {
+      margin: 0 0 30px 20px;
+      list-style-type: none;
+    }
+
+    .legal-body li {
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .legal-body li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--purple-bright);
+      font-family: var(--font-mono);
+    }
+
+    .legal-footer {
+      padding: 80px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      margin-top: 120px;
+      text-align: center;
+    }
+
+    .legal-contact-card {
+      background: rgba(168, 85, 247, 0.03);
+      border: 1px solid rgba(168, 85, 247, 0.1);
+      padding: 40px;
+      border-radius: 12px;
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .legal-contact-card h3 {
+      font-family: var(--font-heading);
+      color: var(--white);
+      margin-bottom: 15px;
+    }
+
+    /* Override any hiding from style.css */
+    .reveal-up {
+      opacity: 1 !important;
+      transform: none !important;
+      visibility: visible !important;
+    }
+
+    @media (max-width: 768px) {
+      .legal-content {
+        padding: 120px 24px 60px;
+      }
+      .legal-body h2 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+
+<body>
+  <!-- NAV (Full Version) -->
+  <nav class="navbar" style="background: rgba(0,0,0,0.9); border-bottom: 1px solid rgba(255,255,255,0.05);">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-text">NOCTA</span>
+      </a>
+      
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="index.html#hero" class="nav-link" data-i18n="nav.home">HOME</a>
+          <a href="index.html#menu" class="nav-link" data-i18n="nav.menu">MENU</a>
+          <a href="index.html#book" class="nav-link" data-i18n="nav.book">RESERVATIONS</a>
+          <a href="gallery.html" class="nav-link" data-i18n="nav.gallery">GALLERY</a>
+        </div>
+
+        <div class="nav-actions">
+          <div class="lang-wrapper">
+            <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+              <span class="lang-current" id="lang-current">EN</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 5L6 8L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </button>
+            <div class="lang-dropdown" id="lang-dropdown">
+              <button class="lang-option active" data-lang="en">English</button>
+              <button class="lang-option" data-lang="ro">Română</button>
+            </div>
+          </div>
+
+          <a href="index.html#book" class="nav-cta-btn" data-i18n="nav.cta">BOOK A TABLE</a>
+
+          <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="legal-content">
+      <header class="legal-header">
+        <h1 class="legal-title" data-i18n="legal.privacy.title">Privacy Policy</h1>
+        <p class="legal-date" data-i18n="legal.revised">Last Revised: May 5, 2026</p>
+      </header>
+
+      <div class="legal-body">
+        <p>At **Nocta The Club**, we recognize that privacy is a critical aspect of the premium experience we provide to our guests. This Privacy Policy outlines our transparent approach to handling your personal data, ensuring that your journey through the Nocta experience—both digital and physical—remains secure and private.</p>
+
+        <h2>1. Scope of Data Collection</h2>
+        <p>In the pursuit of delivering an unparalleled clubbing experience in Baia Mare, we collect and process limited personal information necessary for our operations:</p>
+        <ul>
+          <li>**Reservation Identity**: Full name, mobile contact, and email address provided during the booking process for table reservations and VIP packages.</li>
+          <li>**Preferences & Engagement**: Details regarding specific beverage choices or seating preferences to enhance your future visits.</li>
+          <li>**Digital Footprint**: Standard analytical data including IP addresses and interaction patterns with our digital archive and event voting systems.</li>
+        </ul>
+
+        <h2>2. Data Utilization</h2>
+        <p>Your information is utilized solely to facilitate the high-standard service expected at Nocta:</p>
+        <ul>
+          <li>**Operational Efficiency**: Confirming and managing table allocations, VIP entry protocols, and group attendance.</li>
+          <li>**Personalized Communication**: Providing timely updates about your reservation or informing you of changes to our upcoming sequences.</li>
+          <li>**Exclusive Invitations**: Periodically sharing news about premier events or private sessions with guests who have opted into our inner circle.</li>
+        </ul>
+
+        <h2>3. Security Protocols</h2>
+        <p>Nocta The Club employs advanced technical safeguards to protect your data from unauthorized access. Our internal protocols ensure that personal information is handled with the same level of care as our most exclusive VIP suites.</p>
+
+        <h2>4. Third-Party Collaboration</h2>
+        <p>We do not share your data for commercial gain. We collaborate only with essential service partners (e.g., our reservation platform and Google location services) who adhere to strict data protection standards.</p>
+
+        <h2>5. Institutional Compliance</h2>
+        <p>We comply with all national and international data protection regulations, including GDPR. You maintain the right to request a copy of your data, its correction, or its complete erasure from our archives.</p>
+
+        <div class="legal-contact-card">
+          <h3 data-i18n="legal.concierge">Concierge Support</h3>
+          <p>For any inquiries regarding your privacy or to exercise your data rights, please contact our administrative team:</p>
+          <p style="color: var(--purple-bright); font-family: var(--font-mono); font-size: 1.1rem; margin-top: 10px;">contact@noctatheclub.com</p>
+          <p style="font-size: 0.8rem; margin-top: 20px; opacity: 0.6;">Nocta The Club | Bulevardul Decebal 2, Baia Mare, Romania</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="legal-footer">
+    <div class="container">
+      <p style="color: var(--gray-500); font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em;">&copy; 2026 NOCTA THE CLUB. ALL RIGHTS RESERVED.</p>
+    </div>
+  </footer>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-links">
+        <a href="index.html#hero" class="mobile-nav-link" data-i18n="nav.home">HOME</a>
+        <a href="index.html#menu" class="mobile-nav-link" data-i18n="nav.menu">MENU</a>
+        <a href="index.html#book" class="mobile-nav-link" data-i18n="nav.book">RESERVATIONS</a>
+        <a href="gallery.html" class="mobile-nav-link" data-i18n="nav.gallery">GALLERY</a>
+      </div>
+      <div class="mobile-nav-footer">
+        <a href="index.html#book" class="nav-cta-btn" data-i18n="nav.cta">BOOK A TABLE</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+
+</html>

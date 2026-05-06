@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Nocta The Club</title>
+  <meta name="description" content="Explore the immersive atmosphere of Nocta The Club. A visual journey through the Nocta Archive.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gallery.css">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="gallery-body">
+  <!-- PRELOADER -->
+  <div class="loader" id="loader">
+    <div class="preloader-content">
+      <div class="loader-logo">NOCTA</div>
+      <div class="loader-bar">
+        <div class="loader-progress" id="progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-text">NOCTA</span>
+      </a>
+      
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="index.html#hero" class="nav-link" data-i18n="nav.home">HOME</a>
+          <a href="index.html#menu" class="nav-link" data-i18n="nav.menu">MENU</a>
+          <a href="index.html#book" class="nav-link" data-i18n="nav.book">RESERVATIONS</a>
+          <a href="gallery.html" class="nav-link active" data-i18n="nav.gallery">GALLERY</a>
+        </div>
+
+        <div class="nav-actions">
+          <div class="lang-wrapper">
+            <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">
+              <span class="lang-current" id="lang-current">EN</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M3 5L6 8L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </button>
+            <div class="lang-dropdown" id="lang-dropdown">
+              <button class="lang-option active" data-lang="en">English</button>
+              <button class="lang-option" data-lang="ro">Română</button>
+            </div>
+          </div>
+
+          <a href="index.html#book" class="nav-cta-btn" data-i18n="nav.cta">BOOK A TABLE</a>
+
+          <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- GALLERY HERO -->
+    <section class="gallery-hero">
+      <div class="container">
+        <div class="gallery-hero-content">
+          <span class="eyebrow reveal-up" data-i18n="gallery.hero.eyebrow">GALLERY</span>
+          <h1 class="gallery-title reveal-up" data-delay="100" data-i18n="gallery.title">THE NOCTA ARCHIVE</h1>
+          <p class="gallery-subtitle reveal-up" data-delay="200" data-i18n="gallery.subtitle">Moments. Energy. Atmosphere.</p>
+          <div class="hero-glow reveal-up" data-delay="300"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY GRID SECTION -->
+    <section class="gallery-grid-section">
+      <div class="container">
+        <!-- FILTER BAR -->
+        <div class="gallery-filter-bar reveal-up">
+          <div class="filter-options">
+            <button class="filter-btn active" data-filter="all" data-i18n="gallery.filter.all">ALL</button>
+            <button class="filter-btn" data-filter="events" data-i18n="gallery.filter.events">EVENTS</button>
+            <button class="filter-btn" data-filter="vip" data-i18n="gallery.filter.vip">VIP</button>
+            <button class="filter-btn" data-filter="crowd" data-i18n="gallery.filter.crowd">CROWD</button>
+          </div>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- TOP GRID (6 items) -->
+          <div class="gallery-item events reveal-up" data-delay="50">
+            <div class="gallery-card" onclick="openLightbox(this)">
+              <img src="assets/signature-drink.png" alt="Purple Disco Ball">
+              <div class="card-overlay">
+                <span class="card-tag" data-i18n="gallery.filter.events">EVENTS</span>
+                <h3 class="card-title">DISCO BALL PULSE</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item vip reveal-up" data-delay="100">
+            <div class="gallery-card" onclick="openLightbox(this)">
+              <img src="assets/vip-experience.png" alt="VIP Atmosphere">
+              <div class="card-overlay">
+                <span class="card-tag" data-i18n="gallery.filter.vip">VIP</span>
+                <h3 class="card-title">MIDNIGHT POUR</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item events reveal-up" data-delay="150">
+            <div class="gallery-card" onclick="openLightbox(this)">
+              <img src="assets/barman.png" alt="Stage Lights">
+              <div class="card-overlay">
+                <span class="card-tag" data-i18n="gallery.filter.events">EVENTS</span>
+                <h3 class="card-title">NEON RAYS</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item vip reveal-up" data-delay="50">
+            <div class="gallery-card" onclick="openLightbox(this)">
+              <img src="assets/club-interior.png" alt="VIP Service">
+              <div class="card-overlay">
+                <span class="card-tag">VIP</span>
+                <h3 class="card-title">GOLDEN SPARK</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item events reveal-up" data-delay="100">
+            <div class="gallery-card" onclick="openLightbox(this)">
+              <img src="assets/couple.png" alt="DJ Energy">
+              <div class="card-overlay">
+                <span class="card-tag" data-i18n="gallery.filter.events">EVENTS</span>
+                <h3 class="card-title">BEAT MASTER</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item crowd reveal-up" data-delay="150">
+            <div class="gallery-card" onclick="openLightbox(this)">
+              <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=800&auto=format&fit=crop" alt="Cocktail Detail">
+              <div class="card-overlay">
+                <span class="card-tag" data-i18n="gallery.filter.crowd">CROWD</span>
+                <h3 class="card-title">NIGHT TEXTURES</h3>
+              </div>
+            </div>
+          </div>
+
+          <!-- FEATURED BANNER -->
+          <div class="gallery-featured-banner reveal-up" data-delay="100">
+            <div class="gallery-card">
+              <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2000&auto=format&fit=crop" alt="Featured Event">
+              <div class="featured-content">
+                <span class="featured-eyebrow" data-i18n="gallery.featured.eyebrow">FEATURED</span>
+                <h2 class="featured-title" data-i18n="gallery.featured.title">FRIDAY NIGHTS<br>AT NOCTA</h2>
+                <a href="#" class="view-gallery-link">
+                  <span data-i18n="gallery.featured.cta">VIEW GALLERY</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </div>
+              <div class="card-overlay" style="opacity: 1; background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, transparent 100%);"></div>
+            </div>
+          </div>
+
+          <!-- BOTTOM GRID (6 items) -->
+          <div class="gallery-item vip reveal-up" data-delay="50">
+            <div class="gallery-card" onclick="openLightbox(this)">
+              <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?q=80&w=800&auto=format&fit=crop" alt="Laser Show">
+              <div class="card-overlay">
+                <span class="card-tag" data-i18n="gallery.filter.vip">VIP</span>
+                <h3 class="card-title">LASER DEPTH</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item crowd reveal-up" data-delay="100">
+            <div class="gallery-card" onclick="openLightbox(this)">
+              <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=800&auto=format&fit=crop" alt="Crowd Hands">
+              <div class="card-overlay">
+                <span class="card-tag">CROWD</span>
+                <h3 class="card-title">PURE ENERGY</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item vip reveal-up" data-delay="150">
+            <div class="gallery-card" onclick="openLightbox(this)">
+              <img src="https://images.unsplash.com/photo-1541339907198-e08756eaa63f?q=80&w=800&auto=format&fit=crop" alt="VIP Champagne">
+              <div class="card-overlay">
+                <span class="card-tag">VIP</span>
+                <h3 class="card-title">PRIVATE MOMENT</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item events reveal-up" data-delay="50">
+            <div class="gallery-card" onclick="openLightbox(this)">
+              <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=800&auto=format&fit=crop" alt="Event Lighting">
+              <div class="card-overlay">
+                <span class="card-tag" data-i18n="gallery.filter.events">EVENTS</span>
+                <h3 class="card-title">NOCTA NIGHTS</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item vip reveal-up" data-delay="100">
+            <div class="gallery-card" onclick="openLightbox(this)">
+              <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=800&auto=format&fit=crop" alt="Neon Details">
+              <div class="card-overlay">
+                <span class="card-tag">VIP</span>
+                <h3 class="card-title">ULTRAVIOLET</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="gallery-item crowd reveal-up" data-delay="150">
+            <div class="gallery-card" onclick="openLightbox(this)">
+              <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=800&auto=format&fit=crop" alt="Party Vibe">
+              <div class="card-overlay">
+                <span class="card-tag" data-i18n="gallery.filter.crowd">CROWD</span>
+                <h3 class="card-title">BEYOND MIDNIGHT</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LOAD MORE -->
+        <div class="load-more-container reveal-up">
+          <button class="btn-load-more">
+            <span data-i18n="gallery.loadmore">LOAD MORE</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M3 5L6 8L9 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox">
+      <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+      <img id="lightbox-img" src="" alt="Full view">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </main>
+
+  <footer class="gallery-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-copy" data-i18n="footer.copy">&copy; NOCTA 2026</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/nocta.the.club/" target="_blank" class="social-link">INSTAGRAM</a>
+          <span style="color: var(--gray-700)">·</span>
+          <a href="#" class="social-link">TIKTOK</a>
+          <span style="color: var(--gray-700)">·</span>
+          <a href="#" class="social-link">FACEBOOK</a>
+        </div>
+        <div class="footer-links">
+          <a href="privacy-policy.html" class="legal-link" data-i18n="footer.privacy">PRIVACY POLICY</a>
+          <span style="color: var(--gray-700)">·</span>
+          <a href="terms-and-conditions.html" class="legal-link" data-i18n="footer.terms">TERMS & CONDITIONS</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE NAV OVERLAY -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <div class="mobile-nav-content">
+      <div class="mobile-nav-links">
+        <a href="index.html#hero" class="mobile-nav-link" data-i18n="nav.home">HOME</a>
+        <a href="index.html#menu" class="mobile-nav-link" data-i18n="nav.menu">MENU</a>
+        <a href="index.html#book" class="mobile-nav-link" data-i18n="nav.book">RESERVATIONS</a>
+        <a href="gallery.html" class="mobile-nav-link active" data-i18n="nav.gallery">GALLERY</a>
+      </div>
+      <div class="mobile-nav-footer">
+        <a href="index.html#book" class="nav-cta-btn" data-i18n="nav.cta">BOOK A TABLE</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="gallery-app.js"></script>
+</body>
+
+</html>
